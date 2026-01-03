@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>America campeon 2026</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .tabla {
-            margin-bottom: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-    </style>
+    <title>Gestión de Pedidos - Pastelería</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>America campeon 2026</h1>
-    <div id="tablas"></div>
+    <h1>Gestión de Pedidos - Pastelería</h1>
+    <form id="pedidoForm" action="procesar_pedido.php" method="POST">
+        <label for="nombreCliente">Nombre del Cliente:</label>
+        <input type="text" id="nombreCliente" name="nombreCliente" required>
 
-    <script>
-        const tablasContainer = document.getElementById('tablas');
+        <label for="estado">Estado del Pedido:</label>
+        <select id="estado" name="estado" required>
+            <option value="recepcionado">Recepcionado</option>
+            <option value="despachado">Despachado</option>
+        </select>
 
-        for (let i = 1; i <= 10; i++) {
-            const tablaDiv = document.createElement('div');
-            tablaDiv.classList.add('tabla');
-            const titulo = document.createElement('h2');
-            titulo.textContent = `Tabla del ${i}`;
-            tablaDiv.appendChild(titulo);
+        <h3>Cantidades de Pasteles:</h3>
+        <label for="pastelBasico">Pastel Básico:</label>
+        <input type="number" id="pastelBasico" name="pastelBasico" min="0" value="0">
 
-            for (let j = 1; j <= 10; j++) {
-                const resultado = document.createElement('p');
-                resultado.textContent = `${i} x ${j} = ${i * j}`;
-                tablaDiv.appendChild(resultado);
-            }
+        <label for="pastelMediano">Pastel Mediano:</label>
+        <input type="number" id="pastelMediano" name="pastelMediano" min="0" value="0">
 
-            tablasContainer.appendChild(tablaDiv);
-        }
-    </script>
+        <label for="pastelGrande">Pastel Grande:</label>
+        <input type="number" id="pastelGrande" name="pastelGrande" min="0" value="0">
+
+        <button type="submit">Registrar Pedido</button>
+    </form>
+
+    <h2>Lista de Pedidos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Estado</th>
+                <th>Básico</th>
+                <th>Mediano</th>
+                <th>Grande</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se cargarán los pedidos desde la base de datos -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
 </body>
 </html>
