@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas de Multiplicar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .tabla {
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tablas de Multiplicar</h1>
+    <div id="tablas"></div>
+
+    <script>
+        const tablasContainer = document.getElementById('tablas');
+
+        for (let i = 1; i <= 10; i++) {
+            const tablaDiv = document.createElement('div');
+            tablaDiv.classList.add('tabla');
+            const titulo = document.createElement('h2');
+            titulo.textContent = `Tabla del ${i}`;
+            tablaDiv.appendChild(titulo);
+
+            for (let j = 1; j <= 10; j++) {
+                const resultado = document.createElement('p');
+                resultado.textContent = `${i} x ${j} = ${i * j}`;
+                tablaDiv.appendChild(resultado);
+            }
+
+            tablasContainer.appendChild(tablaDiv);
+        }
+    </script>
+</body>
+</html>
